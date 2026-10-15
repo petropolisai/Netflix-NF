@@ -1,9 +1,8 @@
-services:
+\services:
   - type: web
-    name: nftoken-bot
+    name: malixaris-nftoken-bot
     runtime: python
     plan: free
-    region: oregon
     buildCommand: pip install -r requirements.txt
     startCommand: python bot.py
     healthCheckPath: /health
@@ -12,5 +11,9 @@ services:
         sync: false
       - key: GUILD_ID
         sync: false
+      - key: ALLOWED_ROLE_IDS
+        sync: false
+      - key: ADMIN_BYPASS
+        value: "true"
       - key: PYTHON_VERSION
         value: 3.11.9
